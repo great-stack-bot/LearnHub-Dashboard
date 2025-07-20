@@ -12,6 +12,20 @@ interface PlaylistItem {
   isActive?: boolean;
 }
 
+// Helper function to extract video ID from playlist
+function getVideoIdFromPlaylist(playlistId: string): string {
+  // Map playlist IDs to specific video IDs for demo purposes
+  const playlistToVideoMap: Record<string, string> = {
+    'PLyuRouwmQCjkVfiHE9IEbZu53H0P83hZP': 'dQw4w9WgXcQ', // UI/UX Design
+    'PLvq-jIkSeTUYvTXW5Hb1pUOLCxJ8B_pv2': 'M7lc1UVf-VE', // Android Development  
+    'PLWKjhJtqVAbkArDMazoARtNz1aMwNWmvC': 'F2JCjVSZlG0', // iOS Development
+    'PLyuRouwmQCjkvQeVjL1-6STaLbSDk93K3': 'kVdV8VESix4', // Graphic Design
+    'PLWKjhJtqVAbknyJ7hSrf1WKh_Xnv9RL1r': 'UB1O30fR-EE', // Web Development
+    'PLWKjhJtqVAbkhUangWdVekw65XB2H1kgE': '9bZkp7q19f0' // Machine Learning
+  };
+  return playlistToVideoMap[playlistId] || 'dQw4w9WgXcQ';
+}
+
 export default function CoursePlayer({ course }: CoursePlayerProps) {
   const [selectedVideo, setSelectedVideo] = useState(0);
 
@@ -47,7 +61,7 @@ export default function CoursePlayer({ course }: CoursePlayerProps) {
           <iframe 
             width="100%" 
             height="100%" 
-            src={`https://www.youtube.com/embed/videoseries?list=${course.youtubePlaylistId}&autoplay=0&rel=0`}
+            src={`https://www.youtube.com/embed/${getVideoIdFromPlaylist(course.youtubePlaylistId)}?autoplay=0&rel=0&modestbranding=1`}
             title={`${course.title} - Course Video Player`}
             className="rounded-lg"
             frameBorder="0"

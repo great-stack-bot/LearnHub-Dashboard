@@ -277,7 +277,7 @@ export class MemStorage implements IStorage {
       ...insertStudent, 
       id, 
       createdAt: new Date(),
-      enrolledCourses: insertStudent.enrolledCourses || []
+      enrolledCourses: insertStudent.enrolledCourses || [] as string[]
     };
     this.students.set(id, student);
     return student;

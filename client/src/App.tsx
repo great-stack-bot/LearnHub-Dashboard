@@ -14,6 +14,13 @@ import Teachers from "@/pages/teachers";
 import Teams from "@/pages/teams";
 import Sales from "@/pages/sales";
 import Settings from "@/pages/settings";
+import About from "@/pages/about";
+import Careers from "@/pages/careers";
+import Blog from "@/pages/blog";
+import Contact from "@/pages/contact";
+import Help from "@/pages/help";
+import Privacy from "@/pages/privacy";
+import Terms from "@/pages/terms";
 import NotFound from "@/pages/not-found";
 
 function DashboardRouter() {
@@ -39,6 +46,13 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Landing} />
+      <Route path="/about" component={About} />
+      <Route path="/careers" component={Careers} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/contact" component={Contact} />
+      <Route path="/help" component={Help} />
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/terms" component={Terms} />
       <Route path="/dashboard/*?" component={DashboardRouter} />
       <Route path="/courses/*?" component={DashboardRouter} />
       <Route path="/schedule/*?" component={DashboardRouter} />

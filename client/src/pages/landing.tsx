@@ -79,10 +79,18 @@ export default function Landing() {
               <span className="text-xl font-semibold text-foreground">codemic</span>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a>
-              <a href="#courses" className="text-muted-foreground hover:text-foreground transition-colors">Courses</a>
-              <a href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">Reviews</a>
-              <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
+              <Link href="/about">
+                <a className="text-muted-foreground hover:text-foreground transition-colors">About</a>
+              </Link>
+              <Link href="/careers">
+                <a className="text-muted-foreground hover:text-foreground transition-colors">Careers</a>
+              </Link>
+              <Link href="/blog">
+                <a className="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+              </Link>
+              <Link href="/contact">
+                <a className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
+              </Link>
             </nav>
             <div className="flex items-center space-x-4">
               <Button variant="ghost">Sign In</Button>
