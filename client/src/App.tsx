@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import MainLayout from "@/components/layout/main-layout";
+import Landing from "@/pages/landing";
 import Dashboard from "@/pages/dashboard";
 import Courses from "@/pages/courses";
 import Schedule from "@/pages/schedule";
@@ -15,11 +16,10 @@ import Sales from "@/pages/sales";
 import Settings from "@/pages/settings";
 import NotFound from "@/pages/not-found";
 
-function Router() {
+function DashboardRouter() {
   return (
     <MainLayout>
       <Switch>
-        <Route path="/" component={Dashboard} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/courses" component={Courses} />
         <Route path="/schedule" component={Schedule} />
@@ -32,6 +32,24 @@ function Router() {
         <Route component={NotFound} />
       </Switch>
     </MainLayout>
+  );
+}
+
+function Router() {
+  return (
+    <Switch>
+      <Route path="/" component={Landing} />
+      <Route path="/dashboard/*?" component={DashboardRouter} />
+      <Route path="/courses/*?" component={DashboardRouter} />
+      <Route path="/schedule/*?" component={DashboardRouter} />
+      <Route path="/lessons/*?" component={DashboardRouter} />
+      <Route path="/reports/*?" component={DashboardRouter} />
+      <Route path="/teachers/*?" component={DashboardRouter} />
+      <Route path="/teams/*?" component={DashboardRouter} />
+      <Route path="/sales/*?" component={DashboardRouter} />
+      <Route path="/settings/*?" component={DashboardRouter} />
+      <Route component={NotFound} />
+    </Switch>
   );
 }
 

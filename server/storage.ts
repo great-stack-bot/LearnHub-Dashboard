@@ -80,13 +80,13 @@ export class MemStorage implements IStorage {
       updatedAt: new Date(),
     };
 
-    // Initialize courses
+    // Initialize courses with working YouTube playlist IDs
     const coursesData: InsertCourse[] = [
       {
         title: "Complete UI/UX Design Course",
         description: "Master modern design principles and create stunning user interfaces",
         thumbnail: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
-        youtubePlaylistId: "PLrAXtmRdnEQy6nuLMXE6w6SHKHhyYUIVn",
+        youtubePlaylistId: "PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx",
         videoCount: 24,
         rating: "4.8",
         enrollmentCount: 4200,
@@ -96,7 +96,7 @@ export class MemStorage implements IStorage {
         title: "Android App Development",
         description: "Build professional Android applications from scratch",
         thumbnail: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
-        youtubePlaylistId: "PLrAXtmRdnEQy6nuLMXE6w6SHKHhyYUIVn",
+        youtubePlaylistId: "PLsyeobzWxl7p-bZ3psHugHaUqugOHIt9o",
         videoCount: 32,
         rating: "4.7",
         enrollmentCount: 3850,
@@ -106,7 +106,7 @@ export class MemStorage implements IStorage {
         title: "iOS App Development",
         description: "Create iOS apps using Swift and Xcode",
         thumbnail: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
-        youtubePlaylistId: "PLrAXtmRdnEQy6nuLMXE6w6SHKHhyYUIVn",
+        youtubePlaylistId: "PLMRqhzcHGw1ZqzYnpIuQAn2rcjhOtbqGX",
         videoCount: 28,
         rating: "4.6",
         enrollmentCount: 3500,
@@ -116,7 +116,7 @@ export class MemStorage implements IStorage {
         title: "Graphic Design Mastery",
         description: "Learn design fundamentals and create stunning visuals",
         thumbnail: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
-        youtubePlaylistId: "PLrAXtmRdnEQy6nuLMXE6w6SHKHhyYUIVn",
+        youtubePlaylistId: "PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx",
         videoCount: 18,
         rating: "4.9",
         enrollmentCount: 2030,
@@ -152,6 +152,70 @@ export class MemStorage implements IStorage {
     ];
 
     activitiesData.forEach(activity => this.createActivity(activity));
+
+    // Initialize teachers
+    const teachersData: InsertTeacher[] = [
+      {
+        name: "Sarah Johnson",
+        email: "sarah.johnson@codemic.com",
+        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b8fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50",
+        specialization: "UI/UX Design",
+        coursesCount: 5,
+      },
+      {
+        name: "Michael Chen",
+        email: "michael.chen@codemic.com",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50",
+        specialization: "Mobile Development",
+        coursesCount: 8,
+      },
+      {
+        name: "Emily Rodriguez",
+        email: "emily.rodriguez@codemic.com",
+        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50",
+        specialization: "Web Development",
+        coursesCount: 12,
+      },
+      {
+        name: "David Kim",
+        email: "david.kim@codemic.com",
+        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50",
+        specialization: "Data Science",
+        coursesCount: 6,
+      },
+    ];
+
+    teachersData.forEach(teacher => this.createTeacher(teacher));
+
+    // Initialize students
+    const studentsData: InsertStudent[] = [
+      {
+        name: "Alex Thompson",
+        email: "alex.thompson@student.com",
+        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50",
+        enrolledCourses: [] as string[],
+      },
+      {
+        name: "Jessica Wang",
+        email: "jessica.wang@student.com",
+        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b8fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50",
+        enrolledCourses: [] as string[],
+      },
+      {
+        name: "Ryan Martinez",
+        email: "ryan.martinez@student.com",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50",
+        enrolledCourses: [] as string[],
+      },
+      {
+        name: "Sophie Brown",
+        email: "sophie.brown@student.com",
+        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50",
+        enrolledCourses: [] as string[],
+      },
+    ];
+
+    studentsData.forEach(student => this.createStudent(student));
   }
 
   // Users
@@ -212,7 +276,8 @@ export class MemStorage implements IStorage {
     const student: Student = { 
       ...insertStudent, 
       id, 
-      createdAt: new Date() 
+      createdAt: new Date(),
+      enrolledCourses: insertStudent.enrolledCourses || []
     };
     this.students.set(id, student);
     return student;
@@ -232,7 +297,8 @@ export class MemStorage implements IStorage {
     const teacher: Teacher = { 
       ...insertTeacher, 
       id, 
-      createdAt: new Date() 
+      createdAt: new Date(),
+      coursesCount: insertTeacher.coursesCount || 0
     };
     this.teachers.set(id, teacher);
     return teacher;
@@ -251,7 +317,8 @@ export class MemStorage implements IStorage {
     const activity: Activity = { 
       ...insertActivity, 
       id, 
-      createdAt: new Date() 
+      createdAt: new Date(),
+      studentId: insertActivity.studentId || null
     };
     this.activities.set(id, activity);
     return activity;

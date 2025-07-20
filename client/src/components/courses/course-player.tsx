@@ -43,15 +43,17 @@ export default function CoursePlayer({ course }: CoursePlayerProps) {
       </CardHeader>
       <CardContent className="p-6">
         {/* YouTube Embedded Player */}
-        <div className="aspect-video bg-slate-900 rounded-lg mb-4 flex items-center justify-center">
+        <div className="aspect-video bg-slate-900 rounded-lg mb-4 overflow-hidden">
           <iframe 
             width="100%" 
             height="100%" 
-            src={`https://www.youtube.com/embed/videoseries?list=${course.youtubePlaylistId}`}
-            title="Course Video Player" 
+            src={`https://www.youtube.com/embed/videoseries?list=${course.youtubePlaylistId}&autoplay=0&rel=0`}
+            title={`${course.title} - Course Video Player`}
             className="rounded-lg"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             allowFullScreen
+            referrerPolicy="strict-origin-when-cross-origin"
           />
         </div>
         
