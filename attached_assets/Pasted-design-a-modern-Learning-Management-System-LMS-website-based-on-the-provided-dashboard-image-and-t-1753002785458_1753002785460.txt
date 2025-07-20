@@ -1,0 +1,14 @@
+design a modern Learning Management System (LMS) website based on the provided dashboard image and the following details. The website should serve as an educational platform with embedded YouTube courses, playlists, and an exceptional user interface (UI) and user experience (UX). The prompt should guide the AI to focus on the conceptual design and functionality without generating code.
+
+Dashboard Design: Develop a visually appealing dashboard inspired by the image, featuring a left sidebar with multiple tabs (Dashboard, Schedule, Courses, Lessons, Reports, Teachers, Teams, Sales, Settings). The main dashboard should include:
+A section displaying key metrics: total teachers (e.g., 31,258 with a percentage change), total students (e.g., 739,217 with growth percentage), and total sales (e.g., $1,004,971 with an "Add" option).
+A "Popular Courses" section highlighting top courses (e.g., UI/UX Design, iOS Development, Android Development, Graphic Design) with student counts and progress indicators.
+A "Last Students' Activity" section showing recent student engagement with names, subjects, and dates.
+A "Reports" section with a circular progress indicator (e.g., 178.4 from 183.4) and a list of report types with counts.
+Courses Feature: Design a courses page where each course integrates a YouTube playlist. Ensure the design allows:
+Direct video playback on the page using embedded playlists.
+A complete playlist view for each course, including thumbnails and titles for easy navigation.
+Course details such as title, description, and total video count to be prominently displayed.
+UI/UX Requirements: Emphasize a clean, modern design with a color scheme and layout similar to the image (e.g., light blue gradients, white cards, sleek fonts). Ensure the interface is intuitive, with a search bar at the top for filtering courses or students, hover effects, and smooth transitions between tabs and sections.
+Responsiveness: Plan a fully responsive layout that adapts seamlessly to desktop, tablet, and mobile devices, maintaining usability and aesthetics across all screen sizes.
+Interactivity: Incorporate interactive elements such as clickable tabs, dynamic updates for metrics and activities, and a user-friendly navigation system to enhance engagement.
